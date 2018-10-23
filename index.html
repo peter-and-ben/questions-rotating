@@ -71,13 +71,13 @@
         <div class="modal">
             <i class="fa fa-info-circle" aria-hidden="true"></i>
             <p>Identify and sort the open-ended and closed-ended questions into their own lists.</p>
-            
+
             <div class="example">
                 <div class="example-header">
                     <div class="example-draggable animated">-----------</div>
                 </div>
                 <div class="example-dropable animated">------------</div>
-                
+
                 <svg version="1.1" id="mouse" class="animated" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="55px" height="72px" viewBox="0 0 55 72" style="enable-background:new 0 0 55 72;" xml:space="preserve">
                 <style type="text/css">
                     .st0{fill:#5CC4BF;}
@@ -93,8 +93,8 @@
                         c11,0,20-9,20-20C44,13,35,4,24,4L24,4z"/>
                 </g>
                 <g id="hand" class="animated">
-                    <polygon class="st1" points="15.5,47.5 10.5,47.6 8.1,49 8.1,50.8 10.1,52.5 13.5,55 17.4,59.4 20.5,63 21.7,64.8 24.5,66.2 
-                        29,66.9 40.1,66.8 46.4,66 48.8,63 49.7,55.3 49.9,40.7 48.1,37.9 45,37.9 43.5,39 42.8,37.2 40.9,35.5 38.2,35.1 36.1,36.6 
+                    <polygon class="st1" points="15.5,47.5 10.5,47.6 8.1,49 8.1,50.8 10.1,52.5 13.5,55 17.4,59.4 20.5,63 21.7,64.8 24.5,66.2
+                        29,66.9 40.1,66.8 46.4,66 48.8,63 49.7,55.3 49.9,40.7 48.1,37.9 45,37.9 43.5,39 42.8,37.2 40.9,35.5 38.2,35.1 36.1,36.6
                         35.4,35.3 34.1,33.1 31.2,32.6 27.8,33.8 27.8,24.1 26.4,20.5 23.5,20.2 20.9,21.5 20.4,27.1 20.6,49.3 19.2,48.8 	"/>
                     <g>
                         <path class="st2" d="M42.3,68H26.1c-3,0-5.8-1.8-7.1-4.5c-1.1-2.3-4.2-7.8-9.6-10.1c-1.8-0.8-2.4-2.5-2.3-3.9
@@ -111,12 +111,12 @@
                     </g>
                 </g>
                 </svg>
-            
+
             </div>
             <div class="btn">Got it</div>
         </div>
-    
-    
+
+
     </div> -->
 
 
@@ -149,7 +149,7 @@
                     </div>
                     <div class="answerbox">
                         <div class="answer1">
-                            <button onclick="hdit()">right answer</button>
+                            <button onclick="hdit(this)">right answer</button>
                         </div>
                         <div class="answer2">
                             <button onclick="wrng()">wrong answer</button>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="answerbox">
                             <div class="answer1">
-                                <button onclick="hdit()">right answer</button>
+                                <button onclick="hdit(this)">right answer</button>
                             </div>
                             <div class="answer2">
                                 <button onclick="wrng()">wrong answer</button>
@@ -189,7 +189,7 @@
                         </div>
                         <div class="answerbox">
                             <div class="answer1">
-                                <button onclick="hdit()">right answer</button>
+                                <button onclick="hdit(this)">right answer</button>
                             </div>
                             <div class="answer2">
                                 <button onclick="wrng()">wrong answer</button>
@@ -209,14 +209,14 @@
                             </div>
                             <div class="answerbox">
                                 <div class="answer1">
-                                    <button onclick="hdit()">right answer</button>
+                                    <button onclick="hdit(this)">right answer</button>
                                 </div>
                                 <div class="answer2">
                                     <button onclick="wrng()">wrong answer</button>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="showed question hidden">
                                 <div class="ico">
                                     <img src="img/5.png">
@@ -229,7 +229,7 @@
                                 </div>
                                 <div class="answerbox">
                                     <div class="answer1">
-                                        <button onclick="hdit()">right answer</button>
+                                        <button onclick="hdit(this)">right answer</button>
                                     </div>
                                     <div class="answer2">
                                         <button onclick="wrng()">wrong answer</button>
@@ -250,7 +250,7 @@
                             </div>
                             <div class="answerbox">
                                 <div class="answer1">
-                                    <button onclick="hdit()">right answer</button>
+                                    <button onclick="hdit(this)">right answer</button>
                                 </div>
                                 <div class="answer2">
                                     <button onclick="wrng()">wrong answer</button>
@@ -258,9 +258,9 @@
                             </div>
                         </div>
                     </div>
-  
 
-                
+
+
 
 
             <!--Well done feedback-->
@@ -299,17 +299,30 @@
         var audio = document.getElementsByClassName('audio')
 
 
-        function hdit() {
-            var ans = document.getElementsByClassName('answer2');
+        function hdit(btn) {
+            console.log("right anwser clicked")
+            // get button's parent question that was clicked
+            var questionClicked = $(btn).parents('.question');
+
+            if (questionClicked.is(':last-child')) {
+              questionClicked.siblings(':first').show();
+            } else {
+              questionClicked.next().show();
+            }
+
+            questionClicked.hide();
+
+
+            // var ans = document.getElementsByClassName('answer2');
             // element.parentNode.removeChild(element);
 
-            $(sdd).addClass("shd")
-            $(sdd).removeClass("wrong")
-            $(audio).addClass("audioOn")
-            $(audio).css('display', 'inline');
-            ans.parentNode.removeChild(ans)
-            // $('div#2-answer').removeClass("hidden")
-            console.log('right', sdd)
+            // $(sdd).addClass("shd")
+            // $(sdd).removeClass("wrong")
+            // $(audio).addClass("audioOn")
+            // $(audio).css('display', 'inline');
+            // ans.parentNode.removeChild(ans)
+            // // $('div#2-answer').removeClass("hidden")
+            // console.log('right', sdd)
         }
 
         function wrng() {
