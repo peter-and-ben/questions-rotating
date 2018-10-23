@@ -300,16 +300,19 @@
 
 
         function hdit(btn) {
-            console.log("right anwser clicked")
-            // get button's parent question that was clicked
+            // get clicked button's ancester element with class .question
             var questionClicked = $(btn).parents('.question');
 
+            // if the last question is answered
             if (questionClicked.is(':last-child')) {
+              //show first question
               questionClicked.siblings(':first').show();
             } else {
+              // when it's not last question clicked, show next question.
               questionClicked.next().show();
             }
 
+            // hide the question that was answered correctly
             questionClicked.hide();
 
 
