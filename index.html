@@ -306,7 +306,11 @@
             // if the last question is answered
             if (questionClicked.is(':last-child')) {
               //show first question
-              questionClicked.siblings(':first').show();
+              //questionClicked.siblings(':first').show();
+              // if it's last question
+              // hide last question and show restart button.
+              questionClicked.hide();
+              $('.feedback').show();
             } else {
               // when it's not last question clicked, show next question.
               questionClicked.next().show();
