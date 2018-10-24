@@ -136,128 +136,7 @@
             </div>
 
             <div id="answers">
-
-                <div class="showed question">
-                    <div class="ico">
-                        <img src="img/1.png">
-                        <br>
-                        <audio controls>
-                            <source src="media/01_tena_koe.ogg" type="audio/ogg">
-                            <source src="media/01_tena_koe.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="answerbox">
-                        <div class="answer1">
-                            <button onclick="hdit(this)">right answer</button>
-                        </div>
-                        <div class="answer2">
-                            <button onclick="wrng()">wrong answer</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="showed question hidden">
-                        <div class="ico">
-                            <img src="img/2.png">
-                            <br>
-                            <audio controls>
-                                <source src="media/02_tena_koutou.ogg" type="audio/ogg">
-                                <source src="media/02_tena_koutou.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="answerbox">
-                            <div class="answer1">
-                                <button onclick="hdit(this)">right answer</button>
-                            </div>
-                            <div class="answer2">
-                                <button onclick="wrng()">wrong answer</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="showed question hidden">
-                        <div class="ico">
-                            <img src="img/3.png">
-                            <br>
-                            <audio controls>
-                                <source src="media/02_tena_koutou.ogg" type="audio/ogg">
-                                <source src="media/02_tena_koutou.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="answerbox">
-                            <div class="answer1">
-                                <button onclick="hdit(this)">right answer</button>
-                            </div>
-                            <div class="answer2">
-                                <button onclick="wrng()">wrong answer</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="showed question hidden">
-                            <div class="ico">
-                                <img src="img/4.png">
-                                <br>
-                                <audio controls>
-                                    <source src="media/02_tena_koutou.ogg" type="audio/ogg">
-                                    <source src="media/02_tena_koutou.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                            <div class="answerbox">
-                                <div class="answer1">
-                                    <button onclick="hdit(this)">right answer</button>
-                                </div>
-                                <div class="answer2">
-                                    <button onclick="wrng()">wrong answer</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="showed question hidden">
-                                <div class="ico">
-                                    <img src="img/5.png">
-                                    <br>
-                                    <audio controls>
-                                        <source src="media/02_tena_koutou.ogg" type="audio/ogg">
-                                        <source src="media/02_tena_koutou.mp3" type="audio/mpeg">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                                <div class="answerbox">
-                                    <div class="answer1">
-                                        <button onclick="hdit(this)">right answer</button>
-                                    </div>
-                                    <div class="answer2">
-                                        <button onclick="wrng()">wrong answer</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                    <div class="last showed question hidden">
-                            <div class="ico">
-                                <img src="img/6.png">
-                                <br>
-                                <audio controls>
-                                    <source src="media/03_Morena.ogg" type="audio/ogg">
-                                    <source src="media/03_Morena_koe.mp3" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                            <div class="answerbox">
-                                <div class="answer1">
-                                    <button onclick="hdit(this)">right answer</button>
-                                </div>
-                                <div class="answer2">
-                                    <button onclick="wrng()">wrong answer</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
 
 
 
@@ -300,6 +179,8 @@
 
 
         function hdit(btn) {
+            // remove wrong answer css
+            $('.showed').removeClass('wrong');
             // get clicked button's ancester element with class .question
             var questionClicked = $(btn).parents('.question');
 
