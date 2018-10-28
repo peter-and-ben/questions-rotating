@@ -116,31 +116,91 @@ function listAnswers() {
       img: '1.png',
       mediaOgg: '01_tena_koe.ogg',
       mediaMp3: '01_tena_koe.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     },
     {
       img: '2.png',
       mediaOgg: '02_tena_koutou.ogg',
       mediaMp3: '02_tena_koutou.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     },
     {
       img: '3.png',
       mediaOgg: '02_tena_koutou.ogg',
       mediaMp3: '02_tena_koutou.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     },
     {
       img: '4.png',
       mediaOgg: '02_tena_koutou.ogg',
       mediaMp3: '02_tena_koutou.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     },
     {
       img: '5.png',
       mediaOgg: '02_tena_koutou.ogg',
       mediaMp3: '02_tena_koutou.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     },
     {
       img: '6.png',
       mediaOgg: '02_tena_koutou.ogg',
       mediaMp3: '02_tena_koutou.mp3',
+      answers: [
+        {
+          content: 'person',
+          isRight: true
+        },
+        {
+          content: 'wrong',
+          isRight: false
+        }
+      ]
     }
   ];
   randomiseAnswers(answersData);
@@ -150,6 +210,7 @@ function listAnswers() {
   for (var i=0; i<answersData.length; i++) {
     answersData[i].index = i+1;
     answersData[i].total = answersData.length;
+    randomiseAnswers(answersData[i].answers);
     answersParent.append(createAnswer(answersData[i]));
   }
   $('.hidden').hide();
@@ -169,10 +230,10 @@ function createAnswer(answer) {
   '                    </div>'+
   '                    <div class="answerbox">'+
   '                        <div class="answer1">'+
-  '                            <button onclick="hdit(this)">right answer</button>'+
+  `                            <button onclick="${answer.answers[0].isRight ? 'hdit(this)' : 'wrng()'}">${answer.answers[0].content}</button>`+
   '                        </div>'+
   '                        <div class="answer2">'+
-  '                            <button onclick="wrng()">wrong answer</button>'+
+  `                            <button onclick="${answer.answers[1].isRight ? 'hdit(this)' : 'wrng()'}">${answer.answers[1].content}</button>`+
   '                        </div>'+
   '                    </div>'+
   '                </div>';
